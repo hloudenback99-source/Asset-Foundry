@@ -1,0 +1,12 @@
+NO-CODE MVP OPTION
+==================
+
+This repository can run in two modes:
+
+1. Live Notion mode:
+   The public catalog pulls approved fields from Notion through /api/assets.
+
+2. Static fallback mode:
+   If the API fails or is not connected, the site loads public/assets.sample.json.
+
+If you need to avoid API work temporarily, edit public/assets.sample.json manually and deploy the site as a static catalog.

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HaydenWorks Asset Foundry</title>
+  <meta name="description" content="Premium seasoned business-in-a-box assets by HaydenWorks." />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body data-featured-limit="3">
+<nav class="nav">
+  <a class="brand" href="/" aria-label="HaydenWorks Asset Foundry">
+    <div class="mark"><span>HW</span></div>
+    <span>HW Asset Foundry</span>
+  </a>
+  <div class="navlinks">
+      <a href="/" data-path="/" class="active">Home</a>
+      <a href="/gallery" data-path="/gallery" class="">Gallery</a>
+      <a href="/industries" data-path="/industries" class="">Industries</a>
+      <a href="/how-it-works" data-path="/how-it-works" class="">How It Works</a>
+      <a href="/for-sellers" data-path="/for-sellers" class="">For Sellers</a>
+      <a class="btn" href="/private-review" data-path="/private-review">Request Private Review</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow">Premium Digital Asset Inventory</div>
+      <h1>Acquire. Operate. Scale.</h1>
+      <p>HaydenWorks builds, seasons, and transfers turn-key digital business assets with the brand, website, CRM, automations, lead intake, and operator handoff already structured.</p>
+      <div class="hero-actions">
+        <a class="btn" href="/gallery">View Available Assets</a>
+        <a class="btn secondary" href="https://www.haydenworks.us/gbrands" target="_blank" rel="noopener">Build a Custom Asset</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="eyebrow">Asset Foundry Model</div>
+      <p style="margin:0;color:var(--muted);line-height:1.7">Private assets are built before the buyer arrives, then matured with structure, testing, content, traffic signals, and operational handoff materials.</p>
+      <div class="stat-grid">
+        <div class="stat"><strong>01</strong><span>Build the digital foundation</span></div>
+        <div class="stat"><strong>02</strong><span>Season with market signal</span></div>
+        <div class="stat"><strong>03</strong><span>Qualify serious buyers</span></div>
+        <div class="stat"><strong>04</strong><span>Transfer with support</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+<main>
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <h2>Featured Assets</h2>
+        <p>Live inventory pulled from your Notion Asset Foundry database.</p>
+      </div>
+      <a class="btn secondary" href="/gallery">Open Full Gallery</a>
+    </div>
+    <div id="assetGrid" class="grid"><div class="loading">Loading live Asset Foundry inventory…</div></div>
+  </section>
+
+  <section class="section grid three">
+    <div class="feature-card">
+      <span class="step-num">PREMIUM PATH</span>
+      <h3>Seasoned Asset Acquisition</h3>
+      <p>For buyers who want to skip the buildout and review assets already structured, launched, tested, or currently seasoning.</p>
+    </div>
+    <div class="feature-card">
+      <span class="step-num">MIDDLE PATH</span>
+      <h3>First-Look Reservation</h3>
+      <p>For serious operators who want early review access before an asset is publicly released or fully seasoned.</p>
+    </div>
+    <div class="feature-card">
+      <span class="step-num">SIDE PATH</span>
+      <h3>Custom Business-in-a-Box</h3>
+      <p>For buyers who want HaydenWorks to build the same category of asset around their own domain, brand, or market.</p>
+    </div>
+  </section>
+
+  <div class="notice">
+    <div class="notice-icon">◆</div>
+    <div>
+      <h3>Private Assets. Serious Operators.</h3>
+      <p>Public pages show only safe summary information. Full performance data, backend screenshots, partner structure, database details, and transfer terms are shared after buyer qualification and NDA.</p>
+    </div>
+  </div>
+</main>
+
+<div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-hero" id="modalHero"></div>
+    <div class="modal-body">
+      <div class="modal-top">
+        <div>
+          <div class="eyebrow" id="modalEyebrow">Private Review</div>
+          <h3 id="modalTitle">Asset Title</h3>
+        </div>
+        <button class="close" id="closeModal" aria-label="Close">×</button>
+      </div>
+      <div class="tags" id="modalTags"></div>
+      <div class="detail-grid">
+        <div class="panel">
+          <h4>Asset Overview</h4>
+          <p id="modalSummary" style="color:var(--muted);line-height:1.7"></p>
+        </div>
+        <div class="panel">
+          <h4>Acquisition Options</h4>
+          <div class="list" id="modalOptions"></div>
+          <div style="display:grid;gap:10px;margin-top:18px">
+            <a class="btn" id="modalCta" target="_blank" rel="noopener">Request Private Review</a>
+            <a class="btn secondary" id="modalReserveCta" target="_blank" rel="noopener">Reserve First Look</a>
+            <a class="btn secondary" id="modalBuildCta" target="_blank" rel="noopener">Build Similar Asset</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel" style="margin-top:22px">
+        <h4>What’s Included</h4>
+        <div class="list" id="modalIncluded"></div>
+      </div>
+      <div class="disclaimer">
+        Performance depends on buyer execution, market, budget, offer strength, and follow-up. HaydenWorks does not guarantee revenue, rankings, traffic, lead volume, or ROI. Assets are subject to final transfer terms, buyer qualification, and applicable agreements.
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <span>© HaydenWorks Asset Foundry. Public pages show safe summary information only.</span>
+  <span><a href="/private-review">Request Private Review</a> · <a href="https://www.haydenworks.us/gbrands" target="_blank" rel="noopener">Custom GBrands Build</a></span>
+</footer>
+<script src="/catalog.js"></script>
+</body>
+</html>

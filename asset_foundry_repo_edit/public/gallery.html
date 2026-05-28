@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Asset Gallery | HaydenWorks Asset Foundry</title>
+  <meta name="description" content="Browse live private asset inventory by industry and maturity status." />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body data-featured-limit="0">
+<nav class="nav">
+  <a class="brand" href="/" aria-label="HaydenWorks Asset Foundry">
+    <div class="mark"><span>HW</span></div>
+    <span>HW Asset Foundry</span>
+  </a>
+  <div class="navlinks">
+      <a href="/" data-path="/" class="">Home</a>
+      <a href="/gallery" data-path="/gallery" class="active">Gallery</a>
+      <a href="/industries" data-path="/industries" class="">Industries</a>
+      <a href="/how-it-works" data-path="/how-it-works" class="">How It Works</a>
+      <a href="/for-sellers" data-path="/for-sellers" class="">For Sellers</a>
+      <a class="btn" href="/private-review" data-path="/private-review">Request Private Review</a>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="eyebrow">Live Asset Inventory</div>
+  <h1>Browse private digital business assets.</h1>
+  <p>Filter by industry, maturity, availability, and acquisition path. Full diligence materials are shared only after buyer qualification and NDA.</p>
+</header>
+<main id="gallery">
+  <div class="section-head">
+    <div>
+      <h2>Asset Gallery</h2>
+      <p>Browse private inventory. Full backend details are available after qualification and NDA.</p>
+    </div>
+  </div>
+  <div class="filters" id="filters">
+    <button class="filter active" data-filter="all">All Assets</button>
+    <button class="filter" data-filter="Private Money">Private Money</button>
+    <button class="filter" data-filter="Business Funding">Business Funding</button>
+    <button class="filter" data-filter="Real Estate Investor">Real Estate Investor</button>
+    <button class="filter" data-filter="Seasoning">Seasoning</button>
+    <button class="filter" data-filter="First-Look Review Open">First-Look</button>
+    <button class="filter" data-filter="NDA">NDA Required</button>
+    <div class="search"><input id="searchInput" placeholder="Search assets, industries, buyers..." /></div>
+  </div>
+  <div id="assetGrid" class="grid"><div class="loading">Loading live Asset Foundry inventory…</div></div>
+  <div class="notice">
+    <div class="notice-icon">◆</div>
+    <div><h3>Public overview only.</h3><p>Use the asset cards to start a private review. Sensitive performance data, backend screenshots, partner details, lead/database information, and transfer terms are withheld until qualification and NDA.</p></div>
+  </div>
+</main>
+
+<div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-hero" id="modalHero"></div>
+    <div class="modal-body">
+      <div class="modal-top">
+        <div>
+          <div class="eyebrow" id="modalEyebrow">Private Review</div>
+          <h3 id="modalTitle">Asset Title</h3>
+        </div>
+        <button class="close" id="closeModal" aria-label="Close">×</button>
+      </div>
+      <div class="tags" id="modalTags"></div>
+      <div class="detail-grid">
+        <div class="panel">
+          <h4>Asset Overview</h4>
+          <p id="modalSummary" style="color:var(--muted);line-height:1.7"></p>
+        </div>
+        <div class="panel">
+          <h4>Acquisition Options</h4>
+          <div class="list" id="modalOptions"></div>
+          <div style="display:grid;gap:10px;margin-top:18px">
+            <a class="btn" id="modalCta" target="_blank" rel="noopener">Request Private Review</a>
+            <a class="btn secondary" id="modalReserveCta" target="_blank" rel="noopener">Reserve First Look</a>
+            <a class="btn secondary" id="modalBuildCta" target="_blank" rel="noopener">Build Similar Asset</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel" style="margin-top:22px">
+        <h4>What’s Included</h4>
+        <div class="list" id="modalIncluded"></div>
+      </div>
+      <div class="disclaimer">
+        Performance depends on buyer execution, market, budget, offer strength, and follow-up. HaydenWorks does not guarantee revenue, rankings, traffic, lead volume, or ROI. Assets are subject to final transfer terms, buyer qualification, and applicable agreements.
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <span>© HaydenWorks Asset Foundry. Public pages show safe summary information only.</span>
+  <span><a href="/private-review">Request Private Review</a> · <a href="https://www.haydenworks.us/gbrands" target="_blank" rel="noopener">Custom GBrands Build</a></span>
+</footer>
+<script src="/catalog.js"></script>
+</body>
+</html>
