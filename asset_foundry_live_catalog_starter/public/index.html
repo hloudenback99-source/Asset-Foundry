@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HaydenWorks Asset Foundry</title>
+  <meta name="description" content="Premium seasoned business-in-a-box assets by HaydenWorks." />
+  <style>
+    :root {
+      --bg: #06090d;
+      --bg2: #0b1118;
+      --panel: rgba(15, 20, 28, 0.92);
+      --panel2: rgba(23, 29, 39, 0.92);
+      --line: rgba(255, 255, 255, 0.10);
+      --gold: #c59d45;
+      --gold2: #f1d27a;
+      --text: #f4f0e6;
+      --muted: #b5b8bc;
+      --soft: #767d86;
+      --green: #48a868;
+      --blue: #4d8ddf;
+      --purple: #7a5cc7;
+      --red: #b75e56;
+      --radius: 18px;
+      --shadow: 0 18px 50px rgba(0,0,0,.38);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(197,157,69,.14), transparent 26%),
+        radial-gradient(circle at 90% 20%, rgba(77,141,223,.12), transparent 30%),
+        linear-gradient(180deg, #05070a 0%, #0b0f14 100%);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px clamp(18px, 4vw, 64px);
+      background: rgba(6,9,13,.76);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(18px);
+    }
+
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    .mark {
+      width: 32px; height: 32px; border: 1px solid var(--gold); transform: rotate(45deg); border-radius: 6px;
+      display: grid; place-items: center; box-shadow: 0 0 22px rgba(197,157,69,.18);
+    }
+    .mark span { transform: rotate(-45deg); color: var(--gold2); font-size: 11px; letter-spacing: 0; }
+    .navlinks { display: flex; gap: 22px; color: var(--muted); font-size: 14px; align-items: center; }
+    .navlinks a.active { color: var(--gold2); }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 42px; padding: 0 18px; border-radius: 10px; border: 1px solid rgba(197,157,69,.35);
+      background: linear-gradient(135deg, rgba(197,157,69,.95), rgba(157,113,35,.95));
+      color: #101010; font-weight: 750; cursor: pointer;
+    }
+    .btn.secondary { background: transparent; color: var(--text); border-color: var(--line); }
+    .btn:hover { transform: translateY(-1px); }
+
+    .hero {
+      padding: 72px clamp(18px, 4vw, 64px) 42px;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(90deg, rgba(6,9,13,.95), rgba(6,9,13,.72)),
+        radial-gradient(circle at 65% 30%, rgba(197,157,69,.12), transparent 24%);
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 34px; align-items: center; max-width: 1320px; margin: 0 auto; }
+    .eyebrow { color: var(--gold2); text-transform: uppercase; letter-spacing: .22em; font-size: 12px; font-weight: 800; margin-bottom: 18px; }
+    h1 { margin: 0; font-size: clamp(42px, 7vw, 86px); line-height: .94; letter-spacing: -.05em; }
+    .hero p { max-width: 720px; color: var(--muted); font-size: 18px; line-height: 1.7; margin: 24px 0 0; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
+    .hero-card {
+      border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); padding: 24px; box-shadow: var(--shadow);
+    }
+    .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
+    .stat { border: 1px solid var(--line); border-radius: 14px; padding: 18px; background: rgba(255,255,255,.025); }
+    .stat strong { font-size: 24px; color: var(--gold2); display: block; }
+    .stat span { color: var(--muted); font-size: 13px; }
+
+    main { padding: 34px clamp(18px, 4vw, 64px) 80px; max-width: 1420px; margin: 0 auto; }
+
+    .section-head { display: flex; justify-content: space-between; gap: 20px; align-items: end; margin: 12px 0 22px; }
+    h2 { margin: 0; letter-spacing: .15em; color: var(--gold2); text-transform: uppercase; font-size: 18px; }
+    .section-head p { margin: 8px 0 0; color: var(--muted); }
+
+    .filters { display: flex; gap: 10px; flex-wrap: wrap; margin: 20px 0 28px; }
+    .filter {
+      background: rgba(255,255,255,.035); color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 10px 14px;
+      font-size: 13px; cursor: pointer;
+    }
+    .filter.active { color: var(--gold2); border-color: rgba(197,157,69,.5); background: rgba(197,157,69,.10); }
+    .search { margin-left: auto; min-width: min(100%, 280px); }
+    .search input { width: 100%; padding: 11px 14px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,.035); color: var(--text); outline: none; }
+
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+    .card { border: 1px solid var(--line); background: var(--panel); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column; }
+    .preview { height: 190px; background: linear-gradient(135deg, rgba(197,157,69,.2), rgba(77,141,223,.13)), #0a0f15; position: relative; overflow: hidden; }
+    .preview img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .preview-fallback { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: 28px; }
+    .fallback-mark { width: 72px; height: 72px; border: 1px solid var(--gold); transform: rotate(45deg); margin: 0 auto 20px; border-radius: 14px; }
+    .ribbon { position: absolute; right: 0; top: 18px; background: rgba(197,157,69,.94); color: #111; font-weight: 800; font-size: 11px; padding: 8px 12px; text-transform: uppercase; letter-spacing: .08em; }
+    .content { padding: 20px; display: flex; flex-direction: column; gap: 14px; flex: 1; }
+    .content h3 { font-size: 22px; line-height: 1.1; margin: 0; letter-spacing: -.02em; }
+    .summary { color: var(--muted); line-height: 1.55; font-size: 14px; min-height: 66px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; }
+    .tag { font-size: 11px; padding: 6px 8px; border-radius: 7px; background: rgba(255,255,255,.07); color: var(--text); }
+    .tag.gold { background: rgba(197,157,69,.18); color: var(--gold2); }
+    .tag.green { background: rgba(72,168,104,.16); color: #8fedaa; }
+    .tag.blue { background: rgba(77,141,223,.16); color: #94c2ff; }
+    .tag.red { background: rgba(183,94,86,.15); color: #ffaba4; }
+    .meta { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: auto; }
+    .meta div { border: 1px solid var(--line); border-radius: 10px; padding: 10px; }
+    .meta small { display: block; color: var(--soft); font-size: 11px; margin-bottom: 4px; }
+    .meta strong { font-size: 13px; }
+    .card-actions { display: flex; gap: 10px; padding: 0 20px 20px; }
+    .card-actions .btn { flex: 1; }
+
+    .notice { margin-top: 32px; border: 1px solid rgba(197,157,69,.22); background: rgba(197,157,69,.06); border-radius: var(--radius); padding: 26px; display: flex; gap: 18px; align-items: center; }
+    .notice-icon { width: 52px; height: 52px; border: 1px solid var(--gold); border-radius: 16px; display: grid; place-items: center; color: var(--gold2); font-size: 24px; }
+    .notice h3 { margin: 0 0 6px; }
+    .notice p { margin: 0; color: var(--muted); }
+
+    .modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.72); display: none; align-items: center; justify-content: center; z-index: 50; padding: 20px; }
+    .modal-backdrop.open { display: flex; }
+    .modal { width: min(1080px, 100%); max-height: 90vh; overflow: auto; border: 1px solid var(--line); background: #0a0e13; border-radius: 22px; box-shadow: 0 30px 100px rgba(0,0,0,.6); }
+    .modal-hero { height: 280px; position: relative; background: linear-gradient(135deg, rgba(197,157,69,.2), rgba(77,141,223,.13)); }
+    .modal-hero img { width: 100%; height: 100%; object-fit: cover; }
+    .modal-body { padding: 30px; }
+    .modal-top { display: flex; justify-content: space-between; gap: 20px; align-items: start; }
+    .modal h3 { font-size: clamp(32px, 5vw, 56px); letter-spacing: -.04em; line-height: .95; margin: 8px 0 20px; }
+    .close { background: rgba(255,255,255,.05); border: 1px solid var(--line); color: var(--text); width: 42px; height: 42px; border-radius: 50%; cursor: pointer; }
+    .detail-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 24px; margin-top: 22px; }
+    .panel { border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; background: var(--panel2); }
+    .panel h4 { margin: 0 0 14px; color: var(--gold2); text-transform: uppercase; letter-spacing: .12em; font-size: 13px; }
+    .list { display: grid; gap: 9px; }
+    .list span { color: var(--muted); }
+    .list span::before { content: '✓'; color: #8fedaa; margin-right: 10px; }
+    .disclaimer { margin-top: 22px; color: var(--muted); font-size: 12px; line-height: 1.6; border-top: 1px solid var(--line); padding-top: 18px; }
+
+    .loading, .empty { border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; color: var(--muted); }
+
+    @media (max-width: 980px) {
+      .hero-grid, .detail-grid { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .navlinks { display: none; }
+      .search { margin-left: 0; width: 100%; }
+    }
+    @media (max-width: 640px) {
+      .grid { grid-template-columns: 1fr; }
+      .stat-grid, .meta { grid-template-columns: 1fr; }
+      .section-head { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a class="brand" href="#top" aria-label="HaydenWorks Asset Foundry">
+      <div class="mark"><span>HW</span></div>
+      <span>HW Asset Foundry</span>
+    </a>
+    <div class="navlinks">
+      <a class="active" href="#gallery">Gallery</a>
+      <a href="#industries">Industries</a>
+      <a href="#how">How It Works</a>
+      <a href="#seller">For Sellers</a>
+      <a class="btn" href="#gallery">Request Private Review</a>
+    </div>
+  </nav>
+
+  <header id="top" class="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Premium Digital Asset Inventory</div>
+        <h1>Acquire. Operate. Scale.</h1>
+        <p>HaydenWorks builds, seasons, and transfers turn-key digital business assets with the brand, site, CRM, automations, lead intake, and operator handoff already structured.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#gallery">View Available Assets</a>
+          <a class="btn secondary" href="https://www.haydenworks.us/gbrands" target="_blank" rel="noopener">Build a Custom Asset</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="eyebrow">Asset Foundry Model</div>
+        <p style="margin:0;color:var(--muted);line-height:1.7">Private assets are built before the buyer arrives, then matured with structure, testing, content, traffic signals, and operational handoff materials.</p>
+        <div class="stat-grid">
+          <div class="stat"><strong>01</strong><span>Build the digital foundation</span></div>
+          <div class="stat"><strong>02</strong><span>Season with market signal</span></div>
+          <div class="stat"><strong>03</strong><span>Qualify serious buyers</span></div>
+          <div class="stat"><strong>04</strong><span>Transfer with support</span></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="gallery">
+    <div class="section-head">
+      <div>
+        <h2>Asset Gallery</h2>
+        <p>Browse private inventory. Full backend details are available after qualification and NDA.</p>
+      </div>
+    </div>
+
+    <div class="filters" id="filters">
+      <button class="filter active" data-filter="all">All Assets</button>
+      <button class="filter" data-filter="Private Money">Private Money</button>
+      <button class="filter" data-filter="Business Funding">Business Funding</button>
+      <button class="filter" data-filter="Real Estate Investor">Real Estate Investor</button>
+      <button class="filter" data-filter="Seasoning">Seasoning</button>
+      <button class="filter" data-filter="First-Look Review Open">First-Look</button>
+      <button class="filter" data-filter="NDA">NDA Required</button>
+      <div class="search"><input id="searchInput" placeholder="Search assets, industries, buyers..." /></div>
+    </div>
+
+    <div id="assetGrid" class="grid">
+      <div class="loading">Loading live Asset Foundry inventory…</div>
+    </div>
+
+    <div class="notice" id="how">
+      <div class="notice-icon">◆</div>
+      <div>
+        <h3>Private Assets. Serious Operators.</h3>
+        <p>Public pages show only safe summary information. Full performance data, backend screenshots, partner structure, database details, and transfer terms are shared after buyer qualification and NDA.</p>
+      </div>
+    </div>
+  </main>
+
+  <div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true">
+    <div class="modal">
+      <div class="modal-hero" id="modalHero"></div>
+      <div class="modal-body">
+        <div class="modal-top">
+          <div>
+            <div class="eyebrow" id="modalEyebrow">Private Review</div>
+            <h3 id="modalTitle">Asset Title</h3>
+          </div>
+          <button class="close" id="closeModal" aria-label="Close">×</button>
+        </div>
+        <div class="tags" id="modalTags"></div>
+        <div class="detail-grid">
+          <div class="panel">
+            <h4>Asset Overview</h4>
+            <p id="modalSummary" style="color:var(--muted);line-height:1.7"></p>
+          </div>
+          <div class="panel">
+            <h4>Acquisition Options</h4>
+            <div class="list" id="modalOptions"></div>
+            <div style="display:grid;gap:10px;margin-top:18px">
+              <a class="btn" id="modalCta" target="_blank" rel="noopener">Request Private Review</a>
+              <a class="btn secondary" href="https://www.haydenworks.us/gbrands" target="_blank" rel="noopener">Build Similar Asset</a>
+            </div>
+          </div>
+        </div>
+        <div class="panel" style="margin-top:22px">
+          <h4>What’s Included</h4>
+          <div class="list" id="modalIncluded"></div>
+        </div>
+        <div class="disclaimer">
+          Performance depends on buyer execution, market, budget, offer strength, and follow-up. HaydenWorks does not guarantee revenue, rankings, traffic, lead volume, or ROI. Assets are subject to final transfer terms, buyer qualification, and applicable agreements.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let allAssets = [];
+    let activeFilter = 'all';
+    const grid = document.getElementById('assetGrid');
+    const searchInput = document.getElementById('searchInput');
+
+    function arr(value) { return Array.isArray(value) ? value : value ? [value] : []; }
+    function safe(value, fallback = '') { return value || fallback; }
+    function allTokens(asset) {
+      return [asset.title, asset.assetName, asset.askingRange, asset.ndaRequired, asset.publicSummary, ...arr(asset.industry), ...arr(asset.maturityStatus), ...arr(asset.availability), ...arr(asset.acquisitionType), ...arr(asset.buyerType), ...arr(asset.included), ...arr(asset.establishedData)].join(' ').toLowerCase();
+    }
+
+    async function fetchAssets() {
+      try {
+        const res = await fetch('/api/assets');
+        if (!res.ok) throw new Error('API unavailable');
+        const data = await res.json();
+        return data.assets || [];
+      } catch (err) {
+        const fallback = await fetch('/assets.sample.json');
+        const data = await fallback.json();
+        return data.assets || [];
+      }
+    }
+
+    function badgeClass(label) {
+      const x = String(label).toLowerCase();
+      if (x.includes('season') || x.includes('support')) return 'green';
+      if (x.includes('review') || x.includes('private') || x.includes('nda')) return 'gold';
+      if (x.includes('real estate') || x.includes('funding')) return 'blue';
+      if (x.includes('limited') || x.includes('reserved')) return 'red';
+      return '';
+    }
+
+    function card(asset) {
+      const availability = arr(asset.availability)[0] || 'Private Review';
+      const industry = arr(asset.industry)[0] || 'Digital Asset';
+      const maturity = arr(asset.maturityStatus)[0] || 'Seasoning';
+      const img = asset.previewImage ? `<img src="${asset.previewImage}" alt="${asset.title} preview" />` : `<div class="preview-fallback"><div><div class="fallback-mark"></div><strong>${industry}</strong><br/><span style="color:var(--muted)">Private Asset Preview</span></div></div>`;
+      const tags = [...arr(asset.industry).slice(0,2), ...arr(asset.maturityStatus).slice(0,1), ...arr(asset.availability).slice(0,1)].map(t => `<span class="tag ${badgeClass(t)}">${t}</span>`).join('');
+      return `
+        <article class="card">
+          <div class="preview">${img}<div class="ribbon">${availability}</div></div>
+          <div class="content">
+            <h3>${asset.title}</h3>
+            <div class="tags">${tags}</div>
+            <p class="summary">${safe(asset.publicSummary, 'Full asset overview available after buyer qualification and NDA.').slice(0, 170)}${safe(asset.publicSummary).length > 170 ? '…' : ''}</p>
+            <div class="meta">
+              <div><small>Ask</small><strong>${safe(asset.askingRange, 'Request Details')}</strong></div>
+              <div><small>NDA Required</small><strong>${safe(asset.ndaRequired, 'Yes')}</strong></div>
+            </div>
+          </div>
+          <div class="card-actions"><button class="btn secondary" onclick="openAsset('${asset.id}')">View Asset</button></div>
+        </article>
+      `;
+    }
+
+    function render() {
+      const q = searchInput.value.trim().toLowerCase();
+      const filtered = allAssets.filter(asset => {
+        const tokens = allTokens(asset);
+        const matchesSearch = !q || tokens.includes(q);
+        const matchesFilter = activeFilter === 'all' || (activeFilter === 'NDA' ? String(asset.ndaRequired).toLowerCase().includes('yes') : tokens.includes(activeFilter.toLowerCase()));
+        return matchesSearch && matchesFilter;
+      });
+      grid.innerHTML = filtered.length ? filtered.map(card).join('') : '<div class="empty">No assets match this filter yet.</div>';
+    }
+
+    window.openAsset = function(id) {
+      const asset = allAssets.find(a => a.id === id);
+      if (!asset) return;
+      const modal = document.getElementById('modalBackdrop');
+      const hero = document.getElementById('modalHero');
+      const heroImg = asset.previewImage ? `<img src="${asset.previewImage}" alt="${asset.title} preview" />` : `<div class="preview-fallback"><div><div class="fallback-mark"></div><strong>Private Asset Preview</strong><br/><span style="color:var(--muted)">Full details after NDA</span></div></div>`;
+      hero.innerHTML = heroImg;
+      document.getElementById('modalEyebrow').textContent = arr(asset.availability)[0] || 'Private Review';
+      document.getElementById('modalTitle').textContent = asset.title;
+      document.getElementById('modalSummary').textContent = asset.publicSummary || 'Full asset overview available after buyer qualification and NDA.';
+      document.getElementById('modalTags').innerHTML = [...arr(asset.industry), ...arr(asset.maturityStatus), ...arr(asset.acquisitionType), safe(asset.askingRange)].filter(Boolean).map(t => `<span class="tag ${badgeClass(t)}">${t}</span>`).join('');
+      document.getElementById('modalOptions').innerHTML = arr(asset.acquisitionType).length ? arr(asset.acquisitionType).map(x => `<span>${x}</span>`).join('') : '<span>Request Private Review</span><span>Reserve First Look</span><span>Build Similar Asset</span>';
+      document.getElementById('modalIncluded').innerHTML = arr(asset.included).length ? arr(asset.included).map(x => `<span>${x}</span>`).join('') : '<span>Domain / brand / website / CRM / automation / handoff materials</span>';
+      const cta = document.getElementById('modalCta');
+      cta.href = asset.ctaLink || 'https://www.haydenworks.us/gbrands';
+      modal.classList.add('open');
+    }
+
+    document.getElementById('closeModal').addEventListener('click', () => document.getElementById('modalBackdrop').classList.remove('open'));
+    document.getElementById('modalBackdrop').addEventListener('click', (e) => { if (e.target.id === 'modalBackdrop') e.currentTarget.classList.remove('open'); });
+
+    document.querySelectorAll('.filter').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFilter = btn.dataset.filter;
+        render();
+      });
+    });
+
+    searchInput.addEventListener('input', render);
+
+    fetchAssets().then(assets => {
+      allAssets = assets;
+      render();
+    });
+  </script>
+</body>
+</html>
