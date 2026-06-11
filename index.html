@@ -2,20 +2,105 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>HaydenWorks Asset Foundry Catalog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A private catalog of deployable digital business assets, operating systems, lead engines, and revenue infrastructure built by HaydenWorks." />
+  <title>HaydenWorks Asset Foundry — Private Asset Catalog</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main>
-    <section class="hero">
-      <p class="eyebrow">HaydenWorks Asset Foundry</p>
-      <h1>Operationalized Business Assets</h1>
-      <p>Pre-built brands, lead engines, operating systems, and revenue infrastructure available for review, licensing, or acquisition.</p>
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="HaydenWorks Asset Foundry home">
+      <span class="wordmark-mark" aria-hidden="true">H</span>
+      <span>HaydenWorks <strong>Asset Foundry</strong></span>
+    </a>
+    <a class="header-link" href="#catalog-section">Browse catalog <span aria-hidden="true">↘</span></a>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Private asset marketplace</p>
+        <h1 id="hero-title">Business assets.<br /><em>Built, operated,</em><br />and commercialized.</h1>
+        <p class="hero-summary">A private catalog of deployable digital business assets, operating systems, lead engines, and revenue infrastructure built by HaydenWorks.</p>
+        <a class="button button-primary" href="mailto:review@haydenworks.com?subject=Private%20Asset%20Review%20Request">Request Private Review <span aria-hidden="true">↗</span></a>
+      </div>
+      <aside class="hero-note" aria-label="Catalog overview">
+        <p class="hero-note-label">Catalog thesis</p>
+        <p>Purpose-built infrastructure with clear paths to acquisition, licensing, or custom deployment.</p>
+        <dl>
+          <div><dt id="hero-asset-count">05</dt><dd>Listed assets</dd></div>
+          <div><dt>Private</dt><dd>Diligence process</dd></div>
+        </dl>
+      </aside>
     </section>
 
-    <section id="catalog" class="grid"></section>
+    <section id="catalog-section" class="catalog-section" aria-labelledby="catalog-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow"><span></span> Current opportunities</p>
+          <h2 id="catalog-title">Asset Catalog</h2>
+        </div>
+        <p>Explore assets by fit, maturity, and commercialization path.</p>
+      </div>
+
+      <form class="catalog-controls" id="catalog-controls" role="search" aria-label="Filter and sort assets">
+        <label class="search-field">
+          <span class="sr-only">Search assets</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
+          <input id="search" type="search" placeholder="Search assets, categories, or badges" autocomplete="off" />
+        </label>
+        <label>
+          <span>Asset type</span>
+          <select id="asset-type"><option value="all">All types</option></select>
+        </label>
+        <label>
+          <span>Maturity stage</span>
+          <select id="maturity-stage"><option value="all">All stages</option></select>
+        </label>
+        <label>
+          <span>Availability</span>
+          <select id="availability"><option value="all">All availability</option></select>
+        </label>
+        <label>
+          <span>Commercialization</span>
+          <select id="commercialization-path"><option value="all">All paths</option></select>
+        </label>
+        <label>
+          <span>Sort by</span>
+          <select id="sort-by">
+            <option value="featured">Featured</option>
+            <option value="askingRange">Asking range</option>
+            <option value="maturity">Maturity</option>
+            <option value="availability">Availability</option>
+          </select>
+        </label>
+        <button class="reset-button" id="reset-filters" type="reset">Reset filters</button>
+      </form>
+
+      <div class="catalog-status" aria-live="polite">
+        <p><strong id="result-count">0</strong> <span id="result-label">assets available</span></p>
+        <span class="status-line"></span>
+        <p>Buyer-safe overview</p>
+      </div>
+
+      <div id="catalog" class="catalog-grid"></div>
+      <div id="empty-state" class="empty-state" hidden>
+        <p class="eyebrow"><span></span> No exact matches</p>
+        <h3>Adjust your criteria.</h3>
+        <p>Reset the catalog filters to review every current opportunity.</p>
+        <button class="button button-outline" id="empty-reset" type="button">Reset filters</button>
+      </div>
+    </section>
   </main>
+
+  <footer>
+    <div>
+      <p class="footer-brand">HaydenWorks <strong>Asset Foundry</strong></p>
+      <p>Public catalog entries are limited to buyer-safe information. Private diligence materials may require approval or NDA.</p>
+    </div>
+    <a href="mailto:review@haydenworks.com?subject=Private%20Asset%20Review%20Request">Request Private Review <span aria-hidden="true">↗</span></a>
+  </footer>
+
   <script src="assets.js"></script>
 </body>
 </html>
