@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Review operationalized business assets available for licensing or acquisition from HaydenWorks Asset Foundry." />
   <title>HaydenWorks Asset Foundry Catalog</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -10,12 +11,62 @@
   <main>
     <section class="hero">
       <p class="eyebrow">HaydenWorks Asset Foundry</p>
-      <h1>Operationalized Business Assets</h1>
+      <h1>Operationalized<br /><span>Business Assets</span></h1>
       <p>Pre-built brands, lead engines, operating systems, and revenue infrastructure available for review, licensing, or acquisition.</p>
+      <div class="hero-detail" aria-label="Catalog highlights">
+        <span>Private catalog</span>
+        <span>Qualified buyers</span>
+        <span>Managed transfer</span>
+      </div>
     </section>
 
-    <section id="catalog" class="grid"></section>
+    <section class="marketplace" aria-labelledby="catalog-heading">
+      <div class="catalog-heading">
+        <div>
+          <p class="section-label">Available opportunities</p>
+          <h2 id="catalog-heading">Asset Catalog</h2>
+        </div>
+        <p id="results-count" class="results-count" aria-live="polite">Loading catalog…</p>
+      </div>
+
+      <div class="controls" aria-label="Catalog filters">
+        <label class="search-field">
+          <span>Search</span>
+          <input id="search" type="search" placeholder="Search assets or capabilities" />
+        </label>
+        <label>
+          <span>Industry</span>
+          <select id="industry-filter">
+            <option value="">All industries</option>
+          </select>
+        </label>
+        <label>
+          <span>Availability</span>
+          <select id="availability-filter">
+            <option value="">All availability</option>
+          </select>
+        </label>
+        <label>
+          <span>Maturity</span>
+          <select id="maturity-filter">
+            <option value="">All maturity levels</option>
+          </select>
+        </label>
+        <label>
+          <span>Sort by</span>
+          <select id="sort">
+            <option value="title-asc">Name: A–Z</option>
+            <option value="title-desc">Name: Z–A</option>
+            <option value="industry">Industry</option>
+          </select>
+        </label>
+      </div>
+
+      <p id="catalog-status" class="catalog-status">Loading the private catalog…</p>
+      <button id="clear-filters" class="clear-filters" type="button" hidden>Clear all filters</button>
+      <div id="catalog" class="grid"></div>
+    </section>
   </main>
-  <script src="assets.js"></script>
+  <script src="app.js" defer></script>
 </body>
 </html>
